@@ -13,12 +13,12 @@ const initdb = async () =>
   });
 
 // allows the information to be added to the database, 
-export const putDb = async (id, content) => {
+export const putDb = async (content) => {
   console.log('PUT to the database');
   const textEditorDB = await openDB('txtEditDb', 1);
   const transaction = textEditorDB.transaction('txtEditDb', 'readwrite');
   const store = transaction.objectStore('txtEditDb');
-  const req = store.put({ id: id, todo: content }, id);
+  const req = store.add({content})
   const res = await req;
   console.log('Content Has been Stored', res);
 };
