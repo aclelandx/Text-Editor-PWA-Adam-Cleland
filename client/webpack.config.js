@@ -4,9 +4,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: Add CSS loaders and babel to webpack.
-
+// all of the webpack settings for bundling, handling a service worker, naming conventions, and style loaders.
 module.exports = () => {
   return {
     mode: 'development',
@@ -14,6 +12,7 @@ module.exports = () => {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
+    // defines what the bundled js file is going to be named, along with the location in which it will live after the build has been processed
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -23,12 +22,13 @@ module.exports = () => {
         template: './index.html',
         title: 'TextEditPWA',
       }),
+      // defines information about the application incuding name, shortname, colors, and the start URL
       new WebpackPwaManifest({
         name: 'Text Edit PWA',
         short_name: 'TEPWA',
-        description: 'Keep track of important tasks!',
-        background_color: '#7eb4e2',
-        theme_color: '#7eb4e2',
+        description: 'Progressive web application Text editor for saving code on the go!',
+        background_color: '#bdfff6',
+        theme_color: '#bdfff6',
         start_url: '/',
         publicPath: '/',
         icons: [
@@ -39,12 +39,13 @@ module.exports = () => {
           },
         ],
       }),
+      // defines the source location for our service worker, along with creating the name of the service worker that will be created when the build has processed
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       })
     ],
-
+    // define that the css-loader that we will be using is babel-loader.
     module: {
       rules: [
         {
