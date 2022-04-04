@@ -31,7 +31,9 @@ module.exports = () => {
         theme_color: '#bdfff6',
         start_url: '/',
         publicPath: '/',
+        fingerprints:false,
         inject:true,
+        crossorigin:`use-credentials`,
         icons: [
           {
             src: path.resolve('./src/images/logo.png'),
