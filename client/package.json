@@ -1,5 +1,9 @@
 {
   "name": "Client PWA",
+  "engines": {
+    "node": "16.14.0",
+    "npm":"8.3.1"
+  },
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --mode production",
