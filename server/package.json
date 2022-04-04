@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "This is the server package for the PWA assignment.",
     "main": "server.js",
+    "engines": {
+        "node": "16.14.0",
+        "npm":"8.3.1"
+      },
     "scripts": {
         "server": "nodemon server.js --ignore client"
     },
