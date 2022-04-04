@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A progressive web application made as part of the coursework for the ohio state bootcamp for fullstack development.",
   "main": "server.js",
+  "engines": {"node": "^16.14.0"},
   "scripts": {
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
     "start": "npm run build && cd server && node server.js",
